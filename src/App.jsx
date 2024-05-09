@@ -4,6 +4,10 @@ import 'remixicon/fonts/remixicon.css'
 
 function App() {
 
+  const formHandler = (e) =>{
+    e.preventDefault();
+  }
+
 
   return (
     <>
@@ -16,8 +20,8 @@ function App() {
           <h3 className="text-8xl text-white font-['manuka']">7/0</h3>
         </div>
         <div className="inputContainer">
-          <form className="flex items-center justify-center mt-2 gap-2">
-            <input type="text" name="tasks" className="border  rounded-md  text-white bg-transparent py-2 px-1" placeholder='Enter your task' />
+          <form onSubmit={formHandler} className="flex items-center justify-center mt-2 gap-2">
+            <input onChange={s} type="text" name="tasks" className="border  rounded-md  text-white bg-transparent py-2 px-1" placeholder='Enter your task' />
             <button className="px-3 text-white text-3xl py-1 bg-red-500 rounded-full">+</button>
           </form>
         </div>
