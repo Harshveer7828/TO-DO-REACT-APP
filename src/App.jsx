@@ -3,9 +3,12 @@ import './index.css';
 import 'remixicon/fonts/remixicon.css'
 
 function App() {
+  let tasks = [];
+  let [task,setTask] = useState("");
 
-  const formHandler = (e) =>{
+  const formHandler = (e)=>{
     e.preventDefault();
+    
   }
 
 
@@ -21,7 +24,7 @@ function App() {
         </div>
         <div className="inputContainer">
           <form onSubmit={formHandler} className="flex items-center justify-center mt-2 gap-2">
-            <input onChange={s} type="text" name="tasks" className="border  rounded-md  text-white bg-transparent py-2 px-1" placeholder='Enter your task' />
+            <input onChange={(e)=> setTask(e.target.value)} value={task} type="text" name="tasks" className="border  rounded-md  text-white bg-transparent py-2 px-1" placeholder='Enter your task' />
             <button className="px-3 text-white text-3xl py-1 bg-red-500 rounded-full">+</button>
           </form>
         </div>
