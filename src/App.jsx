@@ -1,13 +1,17 @@
 import { useState } from 'react'
 import './index.css';
 import 'remixicon/fonts/remixicon.css'
+import 'nanoid'; 
+import { nanoid } from 'nanoid';
 
 function App() {
-  let tasks = [];
+  let [data,setData] = useState(JSON.parse(localStorage.getItem("task")) || []);
   let [task,setTask] = useState("");
 
   const formHandler = (e)=>{
     e.preventDefault();
+    const newData = {task,complete : "false",id: nanoid() };
+    setData(...data,newData);
     
   }
 
