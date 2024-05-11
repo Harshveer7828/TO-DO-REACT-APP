@@ -25,11 +25,18 @@ function App() {
   }
   console.log(data);
 
+  const DeleteHanlder = (index)=>{
+    const copyTask = [...data];
+    copyTask.splice(index,1);
+    setData(copyTask)
+    localStorage.setItem("task",JSON.stringify(copyTask));
+  }
+
 
   return (
     <>
-      <div className="container min-h-screen w-screen bg-zinc-900 flex items-center justify-center flex-col">
-        <div className="information h-[20vh] w-[90%] border-2 border-zinc-200 flex items-center justify-between px-4">
+      <div className="container min-h-screen w-screen bg-zinc-900 flex items-center justify-center flex-col lg:w-screen">
+        <div className="information h-[20vh] w-[90%] border-2 border-zinc-200 flex items-center justify-between px-4 lg:w-[25vw]">
           <div className="text">
             <h1 className="text-white text-6xl font-bold font-['manuka']">Let's ToDo</h1>
             <h3 className="text-white text-3xl font-['manuka']">Keep Doing Thing's</h3>
@@ -42,19 +49,19 @@ function App() {
             <button className="px-3 text-white text-3xl py-1 bg-red-500 rounded-full">+</button>
           </form>
         </div>
-        <div className="mt-2 tasksList px-2 min-h-[10vh] w-full flex flex-col gap-2">
+        <div className="mt-2 tasksList px-2 min-h-[10vh] w-full flex flex-col gap-2 lg:w-[25vw]">
           {data.length > 0 ? (
             data.map((tasks, index) => {
               return (<div key={tasks.id} className="flex items-center justify-between task w-full border border-zinc-400 text-white px-2 py-3">
                 <div onClick={() => CompleteHandler(index)} className='flex items-center gap-2'>
-                  <div className={`check h-[1.5rem] w-[1.5rem] rounded-full ${tasks.complete ? "bg-green-400" : "border border-red-500"}`}></div>
-                  <h1 className={`${tasks.complete ? "line-through" : 'none'}`}>{tasks.tasks}</h1>
+                  <div className={`check h-[1.5rem] w-[1.5rem] rounded-full ${tasks.complete === true ? "bg-green-400" : "border border-red-500"}`}></div>
+                  <h1 className={`${tasks.complete === true ? "line-through" : 'none'}`}>{tasks.tasks}</h1>
                 </div>
-                <div className="controls "><i className="ri-delete-bin-2-line"></i></div>
+                <div className="controls" onClick={()=>DeleteHanlder(index)}><i className="ri-delete-bin-2-line"></i></div>
               </div>)
             })
           ) : (
-            <h1 className="text-white text-4xl font-[''manuka] text-center">No Pending Tasks</h1>
+            <h1 className="text-white text-6xl font-['manuka'] text-center">No Pending Tasks 😢</h1>
           )}
         </div>
       </div>
