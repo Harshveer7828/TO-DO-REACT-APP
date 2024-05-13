@@ -36,13 +36,7 @@ function App() {
   return (
     <>
       <div className="container min-h-screen w-screen bg-zinc-900 flex items-center justify-center flex-col lg:w-screen">
-        <div className="information h-[20vh] w-[90%] border-2 border-zinc-200 flex items-center justify-between px-4 lg:w-[25vw]">
-          <div className="text">
-            <h1 className="text-white text-6xl font-bold font-['manuka']">Let's ToDo</h1>
-            <h3 className="text-white text-3xl font-['manuka']">Keep Doing Thing's</h3>
-          </div>
-          <h3 className="text-8xl text-white font-['manuka']">{data.filter(t => t.complete === true).length}/{data.length} </h3>
-        </div>
+        
         <div className="inputContainer">
           <form onSubmit={formHandler} className="flex items-center justify-center mt-2 gap-2">
             <input onChange={(e) => setTasks(e.target.value)} value={tasks} type="text" name="tasks" className="border  rounded-md  text-white bg-transparent py-2 px-1" placeholder='Enter your task' />
