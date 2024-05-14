@@ -4,7 +4,7 @@ function Form(props) {
     const data = props.data;
     const setData = props.setData;
     const tasks = props.tasks
-    const setTask = props.setTasks
+    const setTasks = props.setTasks
 
     const formHandler = (e) => {
         e.preventDefault();
@@ -12,7 +12,7 @@ function Form(props) {
         setData([...data, newData]);
         setTasks("");
 
-        localStorage.setItem("task", JSON.stringify([...data, newData]));
+        localStorage.setItem("tasks", JSON.stringify([...data, newData]));
 
     }
     return <>
