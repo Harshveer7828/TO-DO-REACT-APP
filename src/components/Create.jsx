@@ -1,17 +1,15 @@
 import React from 'react'
-import { nanoid } from 'nanoid';
 
 
 const Create = (props) => {
     const data = props.data;
     const setData = props.setData;
-    let [tasks, setTasks] = useState("");
 
     const CompleteHandler = (index) => {
         const copyTasks = [...data];
         copyTasks[index].complete = !copyTasks[index].complete;
         setData(copyTasks)
-        localStorage.setItem("task", JSON.stringify(copyTasks))
+        localStorage.setItem("tasks", JSON.stringify(copyTasks))
     }
     console.log(data);
 
@@ -19,7 +17,7 @@ const Create = (props) => {
         const copyTask = [...data];
         copyTask.splice(index, 1);
         setData(copyTask)
-        localStorage.setItem("task", JSON.stringify(copyTask));
+        localStorage.setItem("tasks", JSON.stringify(copyTask));
     }
     return <>
         <div className="mt-2 tasksList px-2 min-h-[10vh] w-full flex flex-col gap-2 lg:w-[25vw]">

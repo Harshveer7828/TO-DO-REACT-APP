@@ -1,15 +1,15 @@
 import { useState } from 'react'
 import './index.css';
 import 'remixicon/fonts/remixicon.css'
-import Header from './components/Header';
-import Form from './components/Form';
-import Create from './components/Create';
+import Header from './components/Header.jsx';
+import Form from './components/Form.jsx';
+import Create from './components/Create.jsx';
 
 
 function App() {
-  let [data, setData] = useState(JSON.parse(localStorage.getItem("task")) || []);
+  let [data, setData] = useState(JSON.parse(localStorage.getItem("tasks")) || []);
   let [tasks, setTasks] = useState("");
-
+ 
   
 
   
